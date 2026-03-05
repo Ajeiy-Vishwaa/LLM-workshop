@@ -6,20 +6,15 @@ import os
 # 🔑 SET YOUR API KEY HERE
 # ==============================
 
-API_KEY = "AIzaSyDdKzItbDSh70ELyk54Qm0v3DWg3VzCXWU" 
+API_KEY = "AIzaSyC0Wo58yWkwoiOZyyg1cafqovSMUqg355k"
 
 genai.configure(api_key=API_KEY)
 
 # Choose model
-model = genai.GenerativeModel("gemini-2.5-flash")
-
-# ==============================
-# 🪔 Siddha Assistant Function
-# ==============================
-
-def ask_siddha(question):
-    prompt = f"""
-You are a Siddha Medical Professor teaching B.S.M.S students.
+model = genai.GenerativeModel(
+    "gemini-2.5-flash",
+    system_instruction="""
+You are SiddhaGPT – a Siddha medical study assistant.
 
 Strict Rules:
 - Answer ONLY based on Siddha medicine principles.
@@ -33,17 +28,26 @@ Strict Rules:
 - Do NOT provide modern allopathic treatments.
 - Educational purpose only.
 - If question is unrelated to Siddha medicine, politely refuse.
-
-Question:
-{question}
 """
+)
 
-    response = model.generate_content(prompt)
+# ==============================
+# 🧠 Start Chat Session (Memory)
+# ==============================
+
+chat = model.start_chat(history=[])
+
+# ==============================
+# 🪔 Siddha Assistant Function
+# ==============================
+
+def ask_siddha(question):
+    response = chat.send_message(question)
     return response.text
 
 
 # ==============================
-# 🧠 Interactive Console Chat
+# 💬 Interactive Console Chat
 # ==============================
 
 def main():
@@ -58,6 +62,7 @@ def main():
             break
 
         answer = ask_siddha(user_input)
+
         print("\n📘 Siddha Answer:\n")
         print(answer)
         print("\n" + "="*60 + "\n")
