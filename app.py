@@ -6,7 +6,7 @@ import os
 # 🔑 SET YOUR API KEY HERE
 # ==============================
 
-API_KEY = "AIzaSyC0Wo58yWkwoiOZyyg1cafqovSMUqg355k"
+API_KEY = "Replace your api key"
 
 genai.configure(api_key=API_KEY)
 
