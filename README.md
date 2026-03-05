@@ -6,7 +6,7 @@ SiddhaGPT is an AI-powered Siddha Medical Study Assistant built using a Large La
 It answers Siddha-based theory questions and helps B.S.M.S students understand traditional Siddha concepts in a structured and exam-friendly format.
 
 Try Out Siddha GPT
-https://llm-workshop-gpd2zhqvzuzqrdat2zlv2h.streamlit.app/
+https://llm-workshop-q4te4entgubhyx9uvcxhra.streamlit.app/
 
 
 ---
