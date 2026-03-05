@@ -6,7 +6,7 @@ import os
 # API KEY
 # ==============================
 
-API_KEY = os.getenv("GEMINI_API_KEY")   # safer than hardcoding
+API_KEY =  "AIzaSyDe0PqOlAeSm04YwWe72cWMQs-wi0CY8lk" # safer than hardcoding
 genai.configure(api_key=API_KEY)
 
 model = genai.GenerativeModel("gemini-2.5-flash")
